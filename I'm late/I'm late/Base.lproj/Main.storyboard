@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="I_m_late" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBU-Rh-GMV">
+                                <rect key="frame" x="177.66666666666666" y="216" width="59" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sb-Sh-eh5">
+                                <rect key="frame" x="170.66666666666666" y="276" width="73" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhq-ZN-RHv">
+                                <rect key="frame" x="75" y="335" width="59" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmk-S4-HJn">
+                                <rect key="frame" x="170.66666666666666" y="160" width="73" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nBU-Rh-GMV" firstAttribute="top" secondItem="Hmk-S4-HJn" secondAttribute="bottom" constant="20" id="9w6-DK-Cf4"/>
+                            <constraint firstItem="0sb-Sh-eh5" firstAttribute="top" secondItem="nBU-Rh-GMV" secondAttribute="bottom" constant="30" id="DKl-sJ-Xvp"/>
+                            <constraint firstItem="Yhq-ZN-RHv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="FVp-ym-YLI"/>
+                            <constraint firstItem="Yhq-ZN-RHv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="335" id="L3E-Xe-RDg"/>
+                            <constraint firstItem="nBU-Rh-GMV" firstAttribute="centerX" secondItem="0sb-Sh-eh5" secondAttribute="centerX" id="Wc3-Zq-qYB"/>
+                            <constraint firstItem="Hmk-S4-HJn" firstAttribute="centerX" secondItem="nBU-Rh-GMV" secondAttribute="centerX" id="XQN-wQ-ti2"/>
+                            <constraint firstItem="Hmk-S4-HJn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="aYU-sg-xoz"/>
+                            <constraint firstItem="Hmk-S4-HJn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c7h-f5-wVr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="binaryMonth" destination="Yhq-ZN-RHv" id="Tls-4M-ATi"/>
+                        <outlet property="binaryTitle" destination="0sb-Sh-eh5" id="CBz-fa-xFR"/>
+                        <outlet property="dateNow" destination="nBU-Rh-GMV" id="2br-xo-dfL"/>
+                        <outlet property="dateNowTitle" destination="Hmk-S4-HJn" id="PgC-2Y-Iby"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="76"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
