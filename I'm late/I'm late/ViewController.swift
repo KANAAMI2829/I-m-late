@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                 return String(date[index2...])
             }
         }
-        
+         // 日付の形はxxxx年x月xx日xx:xx
         class CutMonth: CutNumber {
             init() {
                 super.init(firstIdx: "年", lastIdx: "月")
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
                 super.init(firstIdx: ":", lastIdx: nil)
             }
         }
-
+        //
         let month = Int(CutMonth().cut(date: dateText))
         let day = Int(CutDay().cut(date: dateText))
         let hour = Int(CutHour().cut(date: dateText))
@@ -137,7 +137,19 @@ class ViewController: UIViewController {
         hexadecimalMinute.text = "0x\(hexadecimalConverter(decimal: minute!))分"
         // Do any additional setup after loading the view.
     }
-
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showAlert()
+    }
+    func showAlert() {
+        let doNotBeAlert = UIAlertController(title: "遅刻すんなよ", message: "", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "はい...気をつけます...", style: .default, handler: { (UIAlertAction) in
+            self.dismiss(animated: true, completion: nil)
+        })
+        doNotBeAlert.addAction(yesAction)
+        present(doNotBeAlert, animated: true, completion: nil)
+    }
+    
 }
 
