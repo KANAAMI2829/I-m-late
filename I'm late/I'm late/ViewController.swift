@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var binaryDay: UILabel!
     @IBOutlet weak var binaryHour: UILabel!
     @IBOutlet weak var binaryMinute: UILabel!
+    @IBOutlet weak var hexadecimalTitle: UILabel!
+    @IBOutlet weak var hexadecimalMonth: UILabel!
+    @IBOutlet weak var hexadecimalDay: UILabel!
+    @IBOutlet weak var hexadecimalHour: UILabel!
+    @IBOutlet weak var hexadecimalMinute: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,9 +29,9 @@ class ViewController: UIViewController {
         dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMMHm", options: 0, locale: Locale(identifier: "ja_JP")) // 日時をxxxx年x月xx日xx:xxの形で出力
         let dateText = String(dateFormatter.string(from: now))
         
-        class CutNumber { // 数字のみ切り出すクラス
+        class CutNumber { // 数字のみ切り出す親クラス
             var firstIdx: Character
-            var lastIdx: Character!
+            var lastIdx: Character! // 最後の数字を切り出すときはnilになるため
             
             init(firstIdx: Character, lastIdx: Character!) {
                 self.firstIdx = firstIdx
@@ -78,6 +83,7 @@ class ViewController: UIViewController {
         let hour = Int(CutHour().cut(date: dateText))
         let minute = Int(CutMinute().cutMinute(date: dateText))
         
+        
         func binaryConverter(decimal: Int) -> String { // 二進数に変換
             var remainderArray = [Int]()
             var binary = ""
@@ -95,13 +101,40 @@ class ViewController: UIViewController {
             return binary
         }
         
+        func hexadecimalConverter(decimal: Int) -> String { // 16進数に変換
+            let hexadecimalAlphabetArray = ["A", "B", "C", "D", "E", "F"] // 10以上に対応するアルファベット配列
+            var remainderArray = [Int]()
+            var hexadecimal = ""
+            var x = decimal
+            let y = 16
+            
+            while x > 0 {
+                let remainder = x % y
+                x = x / y
+                remainderArray.append(remainder)
+            }
+            remainderArray.forEach {
+                if $0 < 10 {
+                    hexadecimal = "\($0)" + hexadecimal
+                } else {
+                    hexadecimal = "\(hexadecimalAlphabetArray[$0 - 10])" + hexadecimal
+                }
+            }
+            return hexadecimal
+        }
+        
         dateNowTitle.text = "現在の日時"
         dateNow.text = dateText
-        binaryTitle.text = "二進数"
+        binaryTitle.text = "2進数"
         binaryMonth.text = "\(binaryConverter(decimal: month!))月"
         binaryDay.text = "\(binaryConverter(decimal: day!))日"
         binaryHour.text = "\(binaryConverter(decimal: hour!))時"
         binaryMinute.text = "\(binaryConverter(decimal: minute!))分"
+        hexadecimalTitle.text = "16進数"
+        hexadecimalMonth.text = "0x\(hexadecimalConverter(decimal: month!))月"
+        hexadecimalDay.text = "0x\(hexadecimalConverter(decimal: day!))日"
+        hexadecimalHour.text = "0x\(hexadecimalConverter(decimal: hour!))時"
+        hexadecimalMinute.text = "0x\(hexadecimalConverter(decimal: minute!))分"
         // Do any additional setup after loading the view.
     }
 
